@@ -16,15 +16,14 @@
 <script lang="ts">
 import { defineComponent } from 'vue'
 import CrudService from '@/services/CrudService'
-import type CrudServiceType from '@/types/crud-service/CrudServiceType'
 import type CourseCategoryType from '@/types/course-category/CourseCategoryType'
 import CourseCategoryService from '@/services/course-category/CourseCategoryService'
 
 export default defineComponent({
   data() {
     return {
-      pageable: CrudService.getPageableDefault() as CrudServiceType<CourseCategoryType>,
-      service: CourseCategoryService.init()
+      service: CourseCategoryService.init(),
+      pageable: CrudService.getPageableDefault<CourseCategoryType>()
     }
   },
   mounted() {
